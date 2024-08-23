@@ -5,19 +5,19 @@ macro_rules! locales {
     ) => {
         #[allow(non_camel_case_types)]
         #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-        pub enum Locales {
+        pub enum Locale {
             $($locale),*
         }
 
 
-        impl Locales {
+        impl Locale {
             pub fn from_str(locale_str: &str) -> Option<Self> {
-                fn match_str(locale_str: &str) -> Option<Locales>{
+                fn match_str(locale_str: &str) -> Option<Locale>{
                     match locale_str {
                         $(
                             stringify!($locale) 
                             $(| stringify!($aliasses))*
-                            => Some(Locales::$locale),
+                            => Some(Locale::$locale),
                         )*
                         _ => None
                     }
@@ -46,7 +46,7 @@ macro_rules! locales {
             pub fn to_str(&self) -> &str {
                 match self {
                     $(
-                        Locales::$locale => stringify!($locale),
+                        Locale::$locale => stringify!($locale),
                     )*
                 }
             }
