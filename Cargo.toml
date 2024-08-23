@@ -2,6 +2,11 @@
 name = "metw-locales"
 version = "0.1.0"
 edition = "2021"
+description = "Locales for metw.cc"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+homepage = "https://github.com/metwcc/metw-locales"
+repository = "https://github.com/metwcc/metw-locales"
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
